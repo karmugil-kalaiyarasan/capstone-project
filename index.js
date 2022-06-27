@@ -24,11 +24,11 @@ app.use(express.json());
 app.use("/api/pins", pinRoute);
 app.use("/api/users", userRoute);
 
-// app.use(express.static(path.join(__dirname, "/frontend/build")));
+app.use(express.static(path.join(__dirname, "/build")));
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "/frontend/build", "index.html"));
-// });
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/build", "index.html"));
+});
 
 app.listen(process.env.PORT || 5001, () => {
   console.log("server started");
